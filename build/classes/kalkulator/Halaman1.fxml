@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane style="-fx-background-color: #5a5a5a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kalkulator.Controller">
+
+    <HBox spacing="15" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+
+        <!-- KALKULATOR -->
+        <GridPane fx:id="gridPane" alignment="CENTER" hgap="8" prefWidth="360" style="-fx-background-color: #6b6b6b; -fx-padding: 12; -fx-background-radius: 8;" vgap="8">
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+            </columnConstraints>
+
+            <!-- INPUT -->
+            <TextField fx:id="input" minHeight="60.0" prefHeight="45" style="-fx-font-size: 16px;" GridPane.columnSpan="4" />
+
+            <!-- HASIL -->
+            <Label fx:id="hasil" style="-fx-alignment: CENTER-RIGHT; -fx-font-size: 14px; -fx-text-fill: white;" text="Hasil: 0" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+
+            <!-- OPERATOR -->
+            <Button minHeight="40.0" minWidth="80.0" onAction="#tambah" text="+" GridPane.rowIndex="2" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#kurang" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#kali" text="×" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#bagi" text="÷" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+            <!-- SCIENTIFIC -->
+            <Button minHeight="40.0" minWidth="80.0" onAction="#sin" text="sin" GridPane.rowIndex="3" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#cos" text="cos" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#tan" text="tan" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#akar" text="√" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+            <Button minHeight="40.0" minWidth="80.0" onAction="#pangkat" text="^" GridPane.rowIndex="4" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#clear" text="C" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+
+            <!-- ANGKA -->
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="7" GridPane.rowIndex="5" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="8" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="9" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="4" GridPane.rowIndex="6" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="5" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="6" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="1" GridPane.rowIndex="7" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="2" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="3" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+
+            <Button minHeight="40.0" minWidth="80.0" onAction="#angka" text="0" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+
+            <!-- EQUAL -->
+            <Button minHeight="40.0" minWidth="80.0" onAction="#samaDengan" prefHeight="160" style="-fx-font-size: 18px;" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5" GridPane.rowSpan="4" />
+
+            <!-- HISTORY BUTTON -->
+            <Button minHeight="40.0" minWidth="80.0" onAction="#toggleHistory" text="History" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <!-- HISTORY -->
+        <VBox fx:id="historyBox" managed="false" prefWidth="260" spacing="8" style="-fx-background-color: #707070; -fx-padding: 10; -fx-background-radius: 8;" visible="false">
+
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: white;" text="Riwayat" />
+
+            <ListView fx:id="historyList" onMouseClicked="#historyClicked" VBox.vgrow="ALWAYS" />
+        </VBox>
+
+    </HBox>
+</AnchorPane>
